@@ -4,8 +4,8 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
-import memoriesLogo from '../../images/memoriesLogo.png';
-import memoriesText from '../../images/memoriesText.png';
+import memoriesLogo from '../../images/HelpMeOutLogo.png';
+import memoriesText from '../../images/HelpMeOut.png';
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 
@@ -42,6 +42,22 @@ const Navbar = () => {
         <img component={Link} to="/" src={memoriesText} alt="icon" height="45px" />
         <img className={classes.image} src={memoriesLogo} alt="icon" height="40px" />
       </Link>
+      <nav className="navbar"
+           id="navbar">
+        <ul>
+          <li><Link className="nav-link scrollto active"
+                    to="/">Home</Link></li>
+          <li><Link className="nav-link scrollto"
+                    to="about">About</Link></li>
+          <li><Link className="nav-link scrollto"
+                    to="posts">Jobs</Link></li>
+          <li><Link className="nav-link scrollto"
+                    to="team">Team</Link></li>
+          <li><Link className="nav-link scrollto"
+                    to="contact">Contact</Link></li>
+        </ul>
+        <i className="bi bi-list mobile-nav-toggle" />
+      </nav>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
           <div className={classes.profile}>

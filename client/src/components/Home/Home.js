@@ -9,6 +9,7 @@ import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 import Pagination from '../Pagination';
 import useStyles from './styles';
+import Footer from "../Footer";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -46,6 +47,7 @@ const Home = () => {
   const handleDeleteChip = (chipToDelete) => setTags(tags.filter((tag) => tag !== chipToDelete));
 
   return (
+    <>
     <Grow in>
       <Container maxWidth="xl">
         <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
@@ -54,7 +56,7 @@ const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <AppBar className={classes.appBarSearch} position="static" color="inherit">
-              <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Memories" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
+              <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Jobs" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
               <ChipInput
                 style={{ margin: '10px 0' }}
                 value={tags}
@@ -75,6 +77,8 @@ const Home = () => {
         </Grid>
       </Container>
     </Grow>
+      <Footer />
+    </>
   );
 };
 
